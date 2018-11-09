@@ -1,0 +1,59 @@
+---
+title: "Lab 5 "
+author: "Ruixuan Hu"
+date: "11/9/2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. Modify your function from the Problem 2 (Lab5 Activity). The function should simulate N rounds of the game (instead of just one) and return the proportion of times you win the bet. Run the function with N = 1000 and 10000.
+
+
+```{r}
+num <- 0
+
+roll=function(N){
+  for (i in (i:N)) {
+    dice_roll <-sample(1:6, times,replace = TRUE)
+    if(dice_roll[1]==6 | dice_roll[2]==6 | dice_roll[3]==6 | dice_roll[4]==6) 
+      num=num + 1
+  }
+  proportion = num/N
+  return(proportion)
+}
+
+roll(1000)
+roll(10000)
+
+```
+
+
+2.Write a function that will find the smallest element of a given vector (built-in min() is not allowed). Your function should return the smallest element and index of the smallest element.
+Ex. vector is (1, 4, 2, 0, 5), then the smallest element - 0 and index is 4.
+
+
+```{r}
+
+find_small = function(x) {
+small_ele=x[1]
+index=1
+  for(num in 2:length(x)) {
+    if (x[num] < small_ele) {
+      small_ele =x[num]
+      index = num 
+    }  
+    
+  }
+outcome=(c(small_ele,index))
+return(outcome)
+
+}
+
+find_small(c(1,4,2,0,5))
+
+
+```
+
